@@ -16,10 +16,6 @@ export function createElement(tag, classList, text, attributes) {
   return element;
 }
 
-export function appendChildren(parent, ...children) {
-  children.forEach((child) => parent.appendChildren(child));
-}
-
 export function removeAllChildren(parentElement) {
   while (parentElement.firstChild) {
     parentElement.removeChild(parentElement.firstChild);

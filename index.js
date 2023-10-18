@@ -6,7 +6,7 @@ import { removeAllChildren } from './utils/helper.js';
 const routes = {
   '/': {
     component: MainPage,
-    title: '김은혜님, 안녕하세요!',
+    title: '회원님, 안녕하세요!',
   },
   '/bookmarks': { component: ProductPage, title: '북마크 페이지' },
   '/products': { component: ProductPage, title: '상품리스트 페이지' },
@@ -20,11 +20,16 @@ export function renderPage(component) {
   }
 
   const page = component();
-  page.then((children) => main.append(children));
+
+  if (page instanceof Promise) {
+    page.then((children) => main.append(children));
+  } else {
+    main.append(page);
+  }
 }
 
 function init() {
-  window.addEventListener('load', () => renderPage(routes['/'].component));
+  window.addEventListener('load', () => renderPage(routes[window.location.pathname].component));
   window.addEventListener('popstate', () => renderPage(routes[window.location.pathname].component));
 
   Header(routes);

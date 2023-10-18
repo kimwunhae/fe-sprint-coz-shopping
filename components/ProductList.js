@@ -6,8 +6,8 @@ export function ProductList(list) {
   const listContainer = createElement('div', 'list__container');
 
   if (!list.length) {
-    const notFoundMessage = createElement('h1', 'alert__message', '해당하는 상품이 없습니다.');
-    listContainer.append(notFoundMessage);
+    const notFoundMessage = createElement('h1', 'alert__message', '해당하는 상품이 없습니다. 🥲');
+    return notFoundMessage;
   } else {
     const bookmarks = getAllBookmarkedItems();
     list.forEach((item) => {

@@ -145,6 +145,10 @@ ul img {
   color: #472cdd
 }
 
+.alert__message {
+  margin: auto;
+}
+
 .modal__container {
   position: fixed;
   top: 0;
